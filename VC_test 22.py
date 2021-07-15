@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 end_point = 16
-Q = np.zeros([end_point,3]) # state = 000, action = 3
+Q = np.zeros([end_point,3]) # state = 000, action = 3_ three actions
 num_episodes = 10000
 temp_reward = np.zeros([end_point+10])
 temp_action = np.zeros([end_point+10])
