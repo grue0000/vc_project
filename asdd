@@ -1,0 +1,59 @@
+import numpy as np
+import cv2 as cv2
+import matplotlib.pyplot as plt
+import sys
+
+for i in range(30):
+    img = cv2.imread("D_899_1/temp-04302021112709-"+str(784+i)+".bmp", cv2.IMREAD_GRAYSCALE)
+    
+    
+    
+#     src = cv2.GaussianBlur(img,(5,5),sigmaX=0)
+    
+    
+    src = cv2.fastNlMeansDenoisingColored(img,None,10,10,7,21)
+    #src = cv2.medianBlur(img,5)
+    src = cv2.normalize(src, None, 64,192 , cv2.NORM_MINMAX )
+    
+    #밝기
+    #dst = cv2.add(src, 0)
+    # 명암
+    #dst = cv2.equalizeHist(src)
+    #src = cv2.resize(size, dsize=(0, 0), fx=0.3, fy=0.3, interpolation=cv2.INTER_LINEAR)
+
+    #alpha = 1
+    #dst =np.clip((1+alpha)*src-128*alpha, 0, 255).astype(np.uint8)
+
+    #src = cv2.equalizeHist(src)
+    
+   
+    edge3 = cv2.Canny(src, 95, 105)
+    
+  
+    boxH = 100
+    boxW = 100
+    buffer = []
+    tmp = []
+    
+#     for i in range(240-boxH):
+#         for j in range(720-boxW):
+#             buffer.append([edge3[i:i+boxH][j:j+boxW].sum()])
+#             tmp.append([i,j])
+#     x,y=tmp[buffer.index(max(buffer))]
+    
+#     contours, hierachy= cv2.findContours(edge3, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+
+#     cv2.drawContours(src, contours, -1, (255, 0, 0), 2)
+
+  
+#     cv2.rectangle(src, (x, y), (x+boxW, y+boxH), (0, 255, 0), 2)
+
+    plt.imshow(src)
+    cv2.imshow('original', src)
+#     cv2.imshow('Canny Edge1', edge1)
+#     cv2.imshow('Canny Edge2', edge2)
+    cv2.imshow('Canny Edge3', edge3)
+
+
+    cv2.waitKey()
+    cv2.destroyAllWindows()
