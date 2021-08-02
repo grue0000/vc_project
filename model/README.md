@@ -8,7 +8,7 @@
   * wanted word : '어,음,그,외'
   * model size info : [128]
 
-- dnn_8449.ckpt-140 : HESIT
+- dnn_8799.ckpt-120 : HESIT
   * sampling rate : 44100
   * clip duration ms : 1000
   * wanted word : '어,음,그,외'
